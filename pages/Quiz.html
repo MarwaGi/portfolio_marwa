@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Quiz</title>
+
+  <style>
+    :root {
+  --first-color: #3c3b3b;
+  --second-color: #d82076;  
+  --third-color: #777;
+  --hover-color: hsl(332, 93%, 56%);  
+  --body-bg-color: #fefefe;
+  --card-bg-color: #fff;
+  --modal-bg-color: #fff;
+  --bg-transparent-color: rgba(0, 0, 0, 0.1);
+  --transparent-color-01: rgba(0, 0, 0, 0.1);
+  --transparent-color-02: rgba(106, 89, 209, 0.1);
+  --line-color: #d7d7d7;
+  --color-filter: invert(1);
+  --box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+  --small-font-size: 0.9em;
+  --normal-font-size: 1em;
+  --scroll-bar-color: #c5cadf;
+  --scroll-thumb-color: #70768a;
+  --scroll-thumb-hover-color: #454f6b;
+  --rose-color: #d82076; 
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--body-bg-color);
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--rose-color); 
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--card-bg-color);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  border: 2px solid var(--rose-color); 
+}
+
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+}
+
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--second-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+input[type="radio"]:hover, input[type="checkbox"]:hover {
+  background-color: var(--rose-color); 
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--modal-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close-btn {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+    <div class="scrollToTop-btn flex-center">
+        <i class="fas fa-arrow-up"></i>
+
+    </div>
+    <div class="theme-btn flex-center">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <header>
+        <div class="nav-bar">
+            <div class="logo-container">
+                <img src="../images/logo1.png" alt="Logo">
+                <a href="#" class="logo">Marwa</a>
+            </div>
+            <div class="navigation">
+                <div class="nav-items">
+                    <div class="nav-close-btn"> </div>
+                    <a href="../index.html#home">Home</a>
+                    <a href="../index.html#about">About</a>
+                    <a href="../index.html#education">Education</a>
+                    <a href="Experience.html">Experience</a>
+                    <a href="../index.html#skills">Skills</a>
+                    <a href="Project.html">Project</a>
+                    <a href="../index.html#contact">Contact</a>
+                    <a class="active">QUIZ</a>
+                </div>
+            </div>
+            <div class="nav-menu-btn"> </div>
+        </div>
+    </header>
+    <br>
+    <br>
+<br> <br><br>
+    <section>
+        <div class="quiz-container">
+            <h1>Quiz on Dynamic Web</h1>
+    
+            <form id="quiz-form">
+                
+                <div class="question">
+                    <p>1. What is AJAX?</p>
+                    <label><input type="radio" name="q1" value="a"> Asynchronous JavaScript And XML</label>
+                    <label><input type="radio" name="q1" value="b"> Advanced JavaScript Array Extension</label>
+                    <label><input type="radio" name="q1" value="c"> Asynchronous JSON API Execution</label>
+                </div>
+    
+                
+                <div class="question">
+                    <p>2. Which technologies are used on the server-side?</p>
+                    <label><input type="checkbox" name="q2" value="a"> PHP</label>
+                    <label><input type="checkbox" name="q2" value="b"> HTML</label>
+                    <label><input type="checkbox" name="q2" value="c"> Python</label>
+                    <label><input type="checkbox" name="q2" value="d"> CSS</label>
+                </div>
+    
+                
+                <div class="question">
+                    <p>3. Which JavaScript method is used for making asynchronous HTTP requests?</p>
+                    <label><input type="radio" name="q3" value="a"> fetch()</label>
+                    <label><input type="radio" name="q3" value="b"> get()</label>
+                    <label><input type="radio" name="q3" value="c"> post()</label>
+                </div>
+    
+             
+                <div class="question">
+                    <p>4. What is JSON?</p>
+                    <label><input type="radio" name="q4" value="a"> JavaScript Object Notation</label>
+                    <label><input type="radio" name="q4" value="b"> JavaScript Online Notation</label>
+                    <label><input type="radio" name="q4" value="c"> Java Script Organized Notation</label>
+                </div>
+    
+                
+                <div class="question">
+                    <p>5. Which protocol is used for communication on the web?</p>
+                    <label><input type="radio" name="q5" value="a"> FTP</label>
+                    <label><input type="radio" name="q5" value="b"> HTTP</label>
+                    <label><input type="radio" name="q5" value="c"> SMTP</label>
+                </div>
+    
+             
+                <div class="question">
+                    <p>6. Which HTML tag is used to include scripts?</p>
+                    <label><input type="radio" name="q6" value="a"> &lt;script&gt;</label>
+                    <label><input type="radio" name="q6" value="b"> &lt;style&gt;</label>
+                    <label><input type="radio" name="q6" value="c"> &lt;link&gt;</label>
+                </div>
+    
+            
+                <div class="question">
+                    <p>7. Which constant is used for an immutable variable in JavaScript?</p>
+                    <label><input type="radio" name="q7" value="a"> var</label>
+                    <label><input type="radio" name="q7" value="b"> const</label>
+                    <label><input type="radio" name="q7" value="c"> let</label>
+                </div>
+    
+               
+                <div class="question">
+                    <p>8. What does the JSON.stringify() method do?</p>
+                    <label><input type="radio" name="q8" value="a"> Converts an object to a JSON string</label>
+                    <label><input type="radio" name="q8" value="b"> Converts an object to JSON</label>
+                    <label><input type="radio" name="q8" value="c"> Converts an object to an array</label>
+                </div>
+    
+                
+                <div class="question">
+                    <p>9. Which method is used to add an event to an HTML element?</p>
+                    <label><input type="radio" name="q9" value="a"> addEvent()</label>
+                    <label><input type="radio" name="q9" value="b"> element.addEventListener()</label>
+                    <label><input type="radio" name="q9" value="c"> addListener()</label>
+                </div>
+    
+              
+                <div class="question">
+                    <p>10. Which method is used to retrieve an element by its ID in JavaScript?</p>
+                    <label><input type="radio" name="q10" value="a"> getElementById()</label>
+                    <label><input type="radio" name="q10" value="b"> getById()</label>
+                    <label><input type="radio" name="q10" value="c"> querySelector()</label>
+                </div>
+    
+                <button type="button" id="submit-btn">Submit</button>
+            </form>
+        </div>
+    
+ 
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <p id="result-text"></p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="about group">
+                <h2>Marwa</h2>
+                <p>Engineering student</p>
+                <a href="#about">About Me</a>
+            </div>
+            <div class="hr"></div>
+            <div class="info group">
+                <h3>More</h3>
+                <ul>
+                    
+                   
+                   
+                    <li><a href="Project.html">Project</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li> <a href="#skills">Skills</a></li>
+                </ul>
+            </div>
+            <div class="hr"></div>
+            <div class="follow group">
+                <ul>
+                    <a href="https://www.facebook.com/profile.php?id=100009646633200&mibextid=kFxxJD" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/marwamefteh9/profilecard/?igsh=cmNhOTdkaGNjemVs"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/marwa-mefteh-28a481295" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/MarwaGi" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                </ul>
+            </div>
+
+
+        </div>
+        <div class="footer-copyright group">
+            <p>© 2024 by Coding Snow. All rights reserved.</p>
+        </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>
